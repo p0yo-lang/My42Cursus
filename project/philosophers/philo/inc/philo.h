@@ -1,6 +1,7 @@
 #ifndef PHILO_H
 # define PHILO_H
 
+#include <bits/pthreadtypes.h>
 #include <pthread.h>
 
 typedef struct s_args
@@ -22,8 +23,9 @@ typedef struct s_philo
 } t_philo;
 
 void	*routine(void *args);
+void	free_array(void **array, int size);
 t_philo *create_philo(int philo_id, t_args *args);
-t_philo **create_philo_array(t_args *args);
+t_philo **create_philo_array(t_args *args, pthread_mutex_t **fork_table);
 t_args *parse_args(int argc, char **argv);
 
 #endif
