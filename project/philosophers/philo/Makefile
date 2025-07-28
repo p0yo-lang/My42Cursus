@@ -2,7 +2,7 @@ CC=			cc
 
 CFLAGS=		-Wall -Werror -Wextra -g3 -I./inc -pthread
 
-FILENAME=	main philos_init parse_args
+FILENAME=	main philos_init parse_args dead_flag routine routine_utils
 
 SOURCEDIR = src/
 INCDIR = inc/

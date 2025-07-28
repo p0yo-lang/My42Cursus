@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 23:26:41 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/07/13 23:45:37 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/07/28 05:10:43 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	ft_atoi(const char *str)
 	}
 	return (value * sign);
 }
-
+/*Return 1 if the arguments only have integers.
+**0 otherwise.*/
 int	is_arg_valid(char **argv, int argc)
 {
 	int	i;
@@ -74,8 +75,15 @@ t_args *parse_args(int argc, char **argv)
 	args->time_to_die = ft_atoi(argv[2]);
 	args->time_to_eat = ft_atoi(argv[3]);
 	args->time_to_sleep = ft_atoi(argv[4]);
+	args->is_dead = 0;
+	args->start_time = get_time_ms();
 	if (argc == 6)
 		args->numbers_of_time_philosophers_must_eat = ft_atoi(argv[5]);
+	else if (argc == 5)
+	 	args->numbers_of_time_philosophers_must_eat = -1;
+	if (pthread_mutex_init(&args->printf_mutex, NULL)
+		|| pthread_mutex_init(&args->is_dead_mutex, NULL))
+			return (NULL);
 	return (args);
 }
 
