@@ -59,6 +59,7 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		printed;
 
+	printed = 0;
 	va_start(args, format);
 	while (*format)
 	{
