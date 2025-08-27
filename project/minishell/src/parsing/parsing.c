@@ -6,53 +6,33 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 20:14:59 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/22 16:42:13 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/27 02:54:05 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "get_next_line.h"
 #include "libft.h"
-#include <readline/chardefs.h>
+#include "minishell.h"
+#include <stdlib.h>
 
-void	free_array(char **array, int size)
+t_token	*get_token(char *content, t_token_type token_type)
 {
-	while (size >= 0)
-	{
-		free(array[size]);
-		size--;
-	}
-	free(array);
+	t_token	*token;
+
+	token = malloc(sizeof(t_token));
+	if (!token)
+		return (NULL);
+	token->content = content;
+	token->token_type = token_type;
+	token->next = NULL;
+	return (token);
 }
 
-int	count_args(char const *command)
+t_token	*get_command_list(char *command)
 {
-	int	count;
-	int	in_word;
-	int	i;
-
-	i = 0;
-	count = 0;
-	in_word = 0;
-	while (command[i])
-	{
-		if (!ft_isspace(command[i]) && !in_word)
-		{
-			in_word = 1;
-			count++;
-		}
-		if (ft_isspace(command[i])&& in_word)
-			in_word = 0;
-		i++;
-	}
-	return (count);
+	int		in_single_quote;
+	int		in_double_quote;
+	t_token	*command_list_head;
+	
+	//command_list_head = get_token(command);
+	return (command_list_head)
 }
-
-char	**get_command(char *command)
-{
-	char	**command_array;
-
-	command_array = ft_split(command, '"');
-	return (command_array);
-}
-

@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:44:05 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/22 16:41:20 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/27 01:52:41 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ int main(void)
 	while (1)
 	{
 		msg = readline(user_name);
-		command_array = get_command(msg);
-		display_string_table(command_array);
+		//command_array = get_command(msg);
+		display_string_table(command_array);//
+		free(msg);
 	}
 	free(user_name);
 	return (0);
