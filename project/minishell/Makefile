@@ -3,7 +3,7 @@ CC=					cc
 CFLAGS=				-Wall -Werror -Wextra -g3 -I./inc -I$(LIBDIR)inc -lreadline -lcurses
 
 FILENAME=			main
-PARSINGFILENAME=	parsing
+PARSINGFILENAME=	parsing token_utils
 
 SOURCEDIR=			src/
 INCDIR= 			inc/

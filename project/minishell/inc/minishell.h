@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 18:24:47 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/27 02:39:23 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:49:47 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ typedef enum e_token_type
 {
 	OPERATOR,
 	WORD
-} 	t_token_type;
+}	t_token_type;
 
-typedef struct	s_token
+typedef struct s_token
 {
 	char			*content;
 	t_token_type	token_type;
 	struct s_token	*next;
-	
 }	t_token;
 
 char	**get_command(char *command);
-
+void	flush_buffer_to_token(t_token **current_token, char **buffer);
+t_token	*create_token(char *content, t_token_type token_type);
 
 #endif
