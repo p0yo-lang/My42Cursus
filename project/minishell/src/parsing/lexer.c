@@ -6,13 +6,12 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 20:14:59 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 23:39:55 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/31 23:58:28 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "minishell.h"
-#include "libft.h"
 
 int	command_init(t_quote_flag *quote_flag,
 	t_token **command_list_head, char **buffer)
