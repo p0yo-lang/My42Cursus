@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 18:24:47 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/29 17:49:47 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/31 01:02:40 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,11 @@ typedef struct s_token
 	struct s_token	*next;
 }	t_token;
 
-char	**get_command(char *command);
-void	flush_buffer_to_token(t_token **current_token, char **buffer);
-t_token	*create_token(char *content, t_token_type token_type);
+char			**get_command(char *command);
+void			flush_buffer_to_token(t_token **current_token, char **buffer);
+void			free_token_list(t_token *token_head);
+t_token			*create_token(char *content, t_token_type token_type);
+t_token			*get_command_list(char *command);
+t_token_type	get_token_type(char	*buffer);
 
 #endif
