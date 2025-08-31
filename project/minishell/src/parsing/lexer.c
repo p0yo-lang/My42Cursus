@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 20:14:59 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 22:42:10 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/31 23:39:55 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,11 @@ t_token	*get_command_list(char *command)
 	i = 0;
 	while (command[i])
 	{
-		/*if (is_reddirection(&command[i]))
+		if (is_reddirection(&command[i]))
 		{
 			flush_buffer_to_token(&current_token, &buffer);
-			//i = create_redirection_token(command, i, &current_token)
-			//update i apres avoir parcourru les redirection
-		}*/
+			i = create_redirection_token(command, i, &current_token);
+		}
 		populate_buffer(command[i], &quote_flag, &buffer);
 		if ((ft_isspace(command[i]) && quote_flag == NOT_IN_QUOTES)
 			|| !command[i + 1])

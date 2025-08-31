@@ -6,14 +6,13 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:44:05 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 19:34:34 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/31 20:26:03 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "get_next_line.h"
 #include "minishell.h"
-#include <unistd.h>
+#include "libft.h"
+#include <stdio.h>
 
 int	ft_putc(int c)
 {

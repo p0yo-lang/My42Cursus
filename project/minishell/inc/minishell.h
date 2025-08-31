@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 18:24:47 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 22:38:13 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/31 23:39:40 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void			free_token_list(t_token *token_head);
 void			populate_buffer(char c, t_quote_flag *quote_flag,
 					char **buffer);
 int				is_content_empty(char *buffer);
+int				is_reddirection(char *buffer);
+int				create_redirection_token(char *command, int i, t_token **current_token);
 t_token			*create_token(char *content, t_token_type token_type);
 t_token			*get_command_list(char *command);
 t_token_type	get_token_type(char	*buffer);
