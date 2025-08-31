@@ -6,11 +6,19 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 17:47:39 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 01:02:21 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/31 20:04:00 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "minishell.h"
+
+int	is_content_empty(char *buffer)
+{
+	if ((ft_isspace(buffer[0]) && !buffer[1]) || !buffer[0])
+		return (1);
+	return (0);
+}
 
 t_token_type	get_token_type(char	*buffer)
 {
@@ -49,20 +57,19 @@ t_token	*create_token(char *content, t_token_type token_type)
 void	flush_buffer_to_token(t_token **current_token, char **buffer)
 {
 
-	if ((*current_token)->content == NULL)
+	if ((*current_token)->content == NULL && !is_content_empty(*buffer))
 	{
 		(*current_token)->content = ft_strdup(*buffer);
 		(*current_token)->next = NULL;
 		(*current_token)->token_type = get_token_type(*buffer);
-		*(buffer)[0] = '\0';
 	}
-	else
+	else if (!is_content_empty(*buffer))
 	{
 		(*current_token)->next = create_token(*buffer,
 				get_token_type(*buffer));
 		*current_token = (*current_token)->next;
-		*(buffer)[0] = '\0';
 	}
+	*(buffer)[0] = '\0';
 }
 
 void	free_token_list(t_token *token_head)
