@@ -6,12 +6,13 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 17:47:39 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 20:04:00 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/08/31 20:21:31 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "minishell.h"
+#include <stdlib.h>
+#include "libft.h"
 
 int	is_content_empty(char *buffer)
 {
@@ -52,24 +53,6 @@ t_token	*create_token(char *content, t_token_type token_type)
 	token->token_type = token_type;
 	token->next = NULL;
 	return (token);
-}
-
-void	flush_buffer_to_token(t_token **current_token, char **buffer)
-{
-
-	if ((*current_token)->content == NULL && !is_content_empty(*buffer))
-	{
-		(*current_token)->content = ft_strdup(*buffer);
-		(*current_token)->next = NULL;
-		(*current_token)->token_type = get_token_type(*buffer);
-	}
-	else if (!is_content_empty(*buffer))
-	{
-		(*current_token)->next = create_token(*buffer,
-				get_token_type(*buffer));
-		*current_token = (*current_token)->next;
-	}
-	*(buffer)[0] = '\0';
 }
 
 void	free_token_list(t_token *token_head)
