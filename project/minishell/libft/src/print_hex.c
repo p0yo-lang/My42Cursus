@@ -6,11 +6,12 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:43:50 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/01/07 22:23:26 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:17:42 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+#include <stdarg.h>
 
 void	reverse_str(char *str)
 {

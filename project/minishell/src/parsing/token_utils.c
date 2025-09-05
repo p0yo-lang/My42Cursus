@@ -6,11 +6,11 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 17:47:39 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 23:24:53 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:10:55 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "parsing.h"
 #include <stdlib.h>
 #include "libft.h"
 
@@ -53,7 +53,7 @@ t_token	*create_token(char *content, t_token_type token_type)
 	token->token_type = token_type;
 	token->next = NULL;
 	return (token);
-}
+ }
 
 void	free_token_list(t_token *token_head)
 {

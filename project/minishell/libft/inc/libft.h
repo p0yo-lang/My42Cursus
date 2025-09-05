@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:59:37 by mmacedo-          #+#    #+#             */
-/*   Updated: 2024/12/07 18:23:56 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:18:43 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
-# include "ft_printf.h"
-# include "get_next_line.h"
 
+int		ft_isspace(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isascii(int c);

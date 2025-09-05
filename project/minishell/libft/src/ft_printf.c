@@ -6,11 +6,12 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:09:40 by marslink          #+#    #+#             */
-/*   Updated: 2025/01/07 19:34:49 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:19:25 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 static int	print_not_valid(const char *format)
 {
@@ -59,6 +60,7 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		printed;
 
+	printed = 0;
 	va_start(args, format);
 	while (*format)
 	{

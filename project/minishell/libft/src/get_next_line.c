@@ -6,10 +6,11 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:53:48 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/02/25 17:06:30 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:18:59 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "get_next_line.h"
 
 char	*ftget_line(char **buffer)

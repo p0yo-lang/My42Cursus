@@ -6,11 +6,11 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 22:41:48 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 23:39:03 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:10:44 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "parsing.h"
 #include "libft.h"
 
 int	create_redirection_token(char *command, int i, t_token **current_token)

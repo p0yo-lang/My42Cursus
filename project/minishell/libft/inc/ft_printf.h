@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:11:52 by marslink          #+#    #+#             */
-/*   Updated: 2025/01/07 22:05:28 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:11:33 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 # include <stdarg.h>
 # include <stdio.h>
-# include "libft.h"
 
 int		ft_printf(const char *format, ...);
-int		ft_isspace(int c);
 int		is_format_specifier_valid(char format_specifier);
 int		print_str(va_list arg);
 int		print_char(va_list arg, char format_specifier);

@@ -6,11 +6,12 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:05:35 by marslink          #+#    #+#             */
-/*   Updated: 2025/01/07 17:56:58 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:16:40 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+# include <stdarg.h>
 
 int	print_str(va_list arg)
 {

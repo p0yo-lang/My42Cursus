@@ -1,55 +1,61 @@
-CC=					cc
+CC=						cc
 
-CFLAGS=				-Wall -Werror -Wextra -g3 -I./inc -I$(LIBDIR)inc -lreadline -lcurses
+CFLAGS=					-Wall -Werror -Wextra -g3 -I./inc -I$(LIB_DIR)inc -lreadline -lcurses
 
-FILENAME=			main
-PARSINGFILENAME=	lexer token_utils token_buffer token_redirection
+SRCS=					main
+PARSING_SRCS=			lexer token_utils token_buffer token_redirection
 
-SOURCEDIR=			src/
-INCDIR= 			inc/
-OBJDIR= 			obj/
-LIBDIR= 			libft/
+SOURCE_DIR=				src/
+INC_DIR= 				inc/
+OBJ_DIR= 				obj/
+LIB_DIR= 				libft/
 
-PARSINGDIR=			$(SOURCEDIR)parsing/
-PARSINGOBJDIR=		$(OBJDIR)parsing/
+PARSING_DIR=			$(SOURCE_DIR)parsing/
+PARSING_OBJ_DIR=		$(OBJ_DIR)parsing/
 
-SOURCE = 			$(addprefix $(SOURCEDIR), $(addsuffix .c, $(FILENAME))) \
-					$(addprefix $(PARSINGDIR), $(addsuffix .c, $(PARSINGFILENAME)))
+EXECUTION_DIR=			$(SOURCE_DIR)execution/
+EXECUTION_OBJ_DIR=		$(OBJ_DIR)execution/
 
-OBJECTS	=			$(addprefix $(OBJDIR), $(addsuffix .o, $(FILENAME))) \
-					$(addprefix $(PARSINGOBJDIR), $(addsuffix .o, $(PARSINGFILENAME)))
 
-LIBNAME =			libft
-NAME = 				minishell
+SOURCES = 				$(addprefix $(SOURCE_DIR), $(addsuffix .c, $(SRCS))) \
+						$(addprefix $(PARSING_DIR), $(addsuffix .c, $(PARSING_SRCS)))
 
-all: $(OBJDIR) $(PARSINGOBJDIR) $(NAME) $(LIBDIR)$(LIBNAME).a
+OBJECTS	=				$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRCS))) \
+						$(addprefix $(PARSING_OBJ_DIR), $(addsuffix .o, $(PARSING_SRCS)))
 
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
+LIB_NAME =				libft
+NAME = 					minishell
 
-$(PARSINGOBJDIR):
-	mkdir -p $(PARSINGOBJDIR)
+all: $(OBJ_DIR) $(PARSING_OBJ_DIR) $(NAME) $(LIB_DIR)$(LIB_NAME).a
 
-$(LIBDIR)$(LIBNAME).a:
-	cd $(LIBDIR) && make
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-$(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBDIR)$(LIBNAME).a
+$(PARSING_OBJ_DIR):
+	mkdir -p $(PARSING_OBJ_DIR)
 
-$(OBJDIR)%.o: $(SOURCEDIR)%.c
+$(EXECUTION_OBJ_DIR):
+	mkdir-p $(EXECUTION_OBJ_DIR)
+
+$(LIB_DIR)$(LIB_NAME).a:
+	make -C libft 
+
+$(NAME): $(OBJECTS) $(LIB_DIR)$(LIB_NAME).a
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIB_DIR)$(LIB_NAME).a
+
+$(OBJ_DIR)%.o: $(SOURCE_DIR)%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(PARSINGOBJDIR)%.o: $(PARSINGDIR)%.c
+$(PARSING_OBJ_DIR)%.o: $(PARSING_DIR)%.c | $(PARSING_OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR) $(TESTDIR)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(TESTDIR)$(NAME)
+	make -C libft fclean
 
 re: fclean all
-
 
 .PHONY: all clean fclean re

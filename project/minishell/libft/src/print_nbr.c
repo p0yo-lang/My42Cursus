@@ -6,11 +6,12 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:31:38 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/01/07 19:43:10 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:17:25 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+#include <stdarg.h>
 
 static int	get_digits(int n)
 {

@@ -6,10 +6,11 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:21:31 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/01/07 18:08:33 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:17:03 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "ft_printf.h"
 
 int	print_ptr_hexa(va_list arg)

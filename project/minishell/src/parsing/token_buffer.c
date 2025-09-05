@@ -6,11 +6,11 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 22:34:58 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/08/31 22:39:50 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/05 21:10:50 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "parsing.h"
 #include "libft.h"
 
 void	flush_buffer_to_token(t_token **current_token, char **buffer)
