@@ -6,12 +6,22 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 20:44:55 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/09/05 21:03:14 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/06 23:33:21 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
+
+typedef struct s_command
+{
+	char 				**argv;
+	int 				input_fd;
+	int					output_fd;
+	int					read_fd;
+	int					write_fd;
+	struct s_command	*next;
+}	t_command;
 
 typedef enum e_quote_flag
 {
@@ -42,7 +52,7 @@ typedef struct s_token
 **  - buffer: the content of the token
 */
 void			flush_buffer_to_token(t_token **current_token, char **buffer);
-void			free_token_list(t_token *token_head);
+void			free_token_list(t_token *token_list_head);
 /*
 ** populate_buffer:
 ** Adds a character to the buffer and updates the quote flag if needed.
@@ -55,8 +65,11 @@ void			populate_buffer(char c, t_quote_flag *quote_flag,
 					char **buffer);
 int				is_content_empty(char *buffer);
 int				is_reddirection(char *buffer);
+int				is_parenthesis(char *buffer);
 int				create_redirection_token(char *command, int i, t_token **current_token);
+int				create_parenthesis_token(char *command, int i, t_token **current_token);
 t_token			*create_token(char *content, t_token_type token_type);
 t_token_type	get_token_type(char	*buffer);
 char			*buffer_add(char *buffer, char c);
+char			*extract_operator(const char *command, int size);
 #endif 
