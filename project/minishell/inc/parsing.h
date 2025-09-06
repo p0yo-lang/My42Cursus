@@ -6,12 +6,22 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 20:44:55 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/09/05 21:03:14 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/06 17:20:15 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
+
+typedef struct s_command
+{
+	char 				**argv;
+	int 				input_fd;
+	int					output_fd;
+	int					read_fd;
+	int					write_fd;
+	struct s_command	*next;
+}	t_command;
 
 typedef enum e_quote_flag
 {
@@ -42,7 +52,7 @@ typedef struct s_token
 **  - buffer: the content of the token
 */
 void			flush_buffer_to_token(t_token **current_token, char **buffer);
-void			free_token_list(t_token *token_head);
+void			free_token_list(t_token *token_list_head);
 /*
 ** populate_buffer:
 ** Adds a character to the buffer and updates the quote flag if needed.
