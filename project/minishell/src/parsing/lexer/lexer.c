@@ -6,12 +6,13 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 20:14:59 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/09/06 15:59:20 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/06 21:38:13 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "libft.h"
+#include "parsing.h"
 
 static int	token_init(t_quote_flag *quote_flag,
 	t_token **token_list_head, char **buffer)
@@ -24,6 +25,15 @@ static int	token_init(t_quote_flag *quote_flag,
 		return (-1);
 	(*buffer)[0] = '\0';
 	return (0);
+}
+
+int	create_special_token(char *command, int i, t_token **current_token)
+{
+	if (is_reddirection(&command[i]))
+		i = create_redirection_token(command, i, current_token);
+	else if (is_parenthesis(&command[i]))
+		i = create_parenthesis_token(command, i, current_token);
+	return (i);
 }
 
 t_token	*get_token_list(char *command)
@@ -39,10 +49,10 @@ t_token	*get_token_list(char *command)
 	i = 0;
 	while (command[i])
 	{
-		if (is_reddirection(&command[i]))
+		while (is_reddirection(&command[i]) || is_parenthesis(&command[i]))
 		{
 			flush_buffer_to_token(&current_token, &buffer);
-			i = create_redirection_token(command, i, &current_token);
+			i = create_special_token(command, i, &current_token);
 		}
 		populate_buffer(command[i], &quote_flag, &buffer);
 		if ((ft_isspace(command[i]) && quote_flag == NOT_IN_QUOTES)
