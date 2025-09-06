@@ -6,7 +6,7 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 20:44:55 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/09/06 17:20:15 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/06 23:43:16 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,11 @@ void			populate_buffer(char c, t_quote_flag *quote_flag,
 					char **buffer);
 int				is_content_empty(char *buffer);
 int				is_reddirection(char *buffer);
+int				is_parenthesis(char *buffer);
 int				create_redirection_token(char *command, int i, t_token **current_token);
+int				create_parenthesis_token(char *command, int i, t_token **current_token);
 t_token			*create_token(char *content, t_token_type token_type);
 t_token_type	get_token_type(char	*buffer);
 char			*buffer_add(char *buffer, char c);
+char			*extract_operator(const char *command, int size);
 #endif 

@@ -6,13 +6,14 @@
 /*   By: mmacedo- <mmacedo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:44:05 by mmacedo-          #+#    #+#             */
-/*   Updated: 2025/09/06 16:03:06 by mmacedo-         ###   ########.fr       */
+/*   Updated: 2025/09/06 23:42:24 by mmacedo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "libft.h"
 #include <stdio.h>
+#include <readline/readline.h>
 #include <readline/readline.h>
 
 int	ft_putc(int c)
@@ -50,6 +51,7 @@ int main(void)
 	while (1)
 	{
 		msg = readline(user_name);
+		token_head = get_token_list(msg);
 		token_head = get_token_list(msg);
 		display_string_table(token_head);
 	}

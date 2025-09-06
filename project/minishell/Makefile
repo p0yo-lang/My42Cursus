@@ -4,7 +4,7 @@ CFLAGS=					-Wall -Werror -Wextra -g3 -I./inc -I$(LIB_DIR)inc
 LDFLAGS= 				-lreadline -lcurses
 
 SRCS=					main
-LEXER_SRCS=				lexer token_utils token_buffer token_redirection
+LEXER_SRCS=				lexer token_utils token_buffer token_redirection token_parenthesis
 PARSER_SRCS=			parser
 
 SOURCE_DIR=				src/
