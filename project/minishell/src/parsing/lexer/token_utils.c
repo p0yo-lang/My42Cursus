@@ -27,7 +27,7 @@ t_token_type	get_token_type(char	*buffer)
 	t_token_type	token_type;
 	static char		*operator_table[8]
 		= {"||", "&&", "|", ">", "<", "<<", ">>", NULL};
-		
+
 	i = 0;
 	token_type = WORD;
 	while (operator_table[i])
@@ -53,7 +53,7 @@ t_token	*create_token(char *content, t_token_type token_type)
 	token->token_type = token_type;
 	token->next = NULL;
 	return (token);
- }
+}
 
 void	free_token_list(t_token *token_list_head)
 {
@@ -76,5 +76,5 @@ char	*extract_operator(const char *command, int size)
 	if (!result)
 		return (NULL);
 	ft_strlcpy(result, command, size + 1);
-	return (result);	
+	return (result);
 }

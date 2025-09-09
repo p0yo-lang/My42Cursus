@@ -36,6 +36,14 @@ typedef enum e_token_type
 	WORD
 }	t_token_type;
 
+
+typedef enum e_operaor_type
+{
+	OR,
+	AND
+
+}	t_operator_type;
+
 typedef struct s_token
 {
 	char			*content;
@@ -72,4 +80,13 @@ t_token			*create_token(char *content, t_token_type token_type);
 t_token_type	get_token_type(char	*buffer);
 char			*buffer_add(char *buffer, char c);
 char			*extract_operator(const char *command, int size);
+/*
+** find_lowest_priority:
+** Iterate through the token list and finds the token with the lowest priority
+** in between two t_token pointer, if there are no operator, end is returned
+** Parameters:
+**  - start: a pointer to the beggining of the "area" to search
+**  - end: a pointer to the end of the "area" to search
+*/
+t_token	*find_lowest_priority(t_token *start, t_token *end);
 #endif 
